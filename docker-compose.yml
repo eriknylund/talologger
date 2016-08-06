@@ -1,14 +1,30 @@
-app:
+app-base:
   container_name: talologger-app
   image: brikkney/talologger:0.1
-  links:
-    - db:db
   volumes:
     - /dev/null:/dev/ttyUSB0
     - ./taloLogger.conf:/root/taloLogger.conf
 
+app:
+  extends:
+    service: app-base
+  links:
+    - db:db
+
 db:
   container_name: talologger-db
-  image: mariadb:latest
+  image: mariadb
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+
+rpi-app:
+  extends:
+    service: app-base
+  links:
+    - rpi-db:db
+
+rpi-db:
+  container_name: talologger-db
+  image: hypriot/rpi-mysql
   environment:
     - MYSQL_ROOT_PASSWORD=root
