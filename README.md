@@ -2,23 +2,33 @@
 
 This container is a starting point for quickly getting started with logging Enervent EDA using the taloLogger software by Olli Lammi. It can be configured as you like by using the image as a starting point and configuring new data sources and data storages. You might have to map other devices as well.
 
-## Quick start
+## First step ##
+
+- Modify `taloLogger.conf` to your needs, more details about how to configure are found on http://olammi.iki.fi/sw/taloLogger/howto.php
+- If you need access to devices (like ttyUSB0) modify docker-compose.yml accordingly
+
+## Quick start on Linux with Docker installed ###
 
 ```
-git clone https://github.com/brikkney/talologger.git
-
-cd talologger
+$ git clone https://github.com/brikkney/talologger.git
+$ cd talologger
+$ docker-compose upp app
 ```
 
-For desktop run:
+## Quick start Raspberry Pi
+
+### Setup HypriotOS
 
 ```
-docker-compose up app
+$ wget https://downloads.hypriot.com/hypriotos-rpi-v0.8.0.img.zip
+$ unzip hypriotos-rpi-v0.8.0.img.zip
+$ sudo dd bs=1m if=hypriotos-rpi-v0.8.0.img of=/dev/r<disknr> 
 ```
-
-For Raspberry Pi run:
+(see http://blog.hypriot.com/getting-started-with-docker-and-mac-on-the-raspberry-pi/ for more details of flashing on Mac OS X)
 ```
-docker-compose up rpi-app
+$ git clone https://github.com/brikkney/talologger.git
+$ cd talologger
+$ docker-compose up rpi-app
 ```
 
 ## Technical details
