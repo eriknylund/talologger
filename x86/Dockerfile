@@ -23,5 +23,5 @@ RUN wget http://olammi.iki.fi/sw/taloLogger/taloLogger_$TALOLOGGER_VERSION.zip &
 	unzip taloLogger_$TALOLOGGER_VERSION.zip -d /root && \
 	rm -f taloLogger_$TALOLOGGER_VERSION.zip
 
-COPY ./docker-entrypoint.sh /
+COPY ../docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
