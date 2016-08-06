@@ -1,5 +1,6 @@
 app-base:
   container_name: talologger-app
+  image: brikkney/talologger:0.1
   volumes:
     - /dev/null:/dev/ttyUSB0
     - ./taloLogger.conf:/root/taloLogger.conf
