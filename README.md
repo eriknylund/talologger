@@ -8,9 +8,13 @@ This container is a starting point for quickly getting started with logging Ener
 https://github.com/brikkney/talologger.git
 
 cd talologger
-
-docker-compose up
 ```
+
+For desktop run:
+`docker-compose up app`
+
+For Raspberry Pi run:
+`docker-compose up rpi-app`
 
 ## Technical details
 
